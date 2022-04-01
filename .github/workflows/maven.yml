@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 env:
-  DEVOPS_DIR: devops
+  DEVOPS_DIR: graph
 
 jobs:
   run_tests:
@@ -48,10 +48,10 @@ jobs:
     - name: Check-out devops repository
       uses: actions/checkout@v2
       with:
-        repository: jcdan3/devops
+        repository: AlessandroPaparella/graph
         token: ${{ secrets.GITHUB_TOKEN }}
         path: ${{ env.DEVOPS_DIR }}
 
     - name: Hello World
-      run: python ${{ env.DEVOPS_DIR }}/hello_world.py
+      run: python ${{ env.DEVOPS_DIR }}/pre-commit.py
       shell: sh
