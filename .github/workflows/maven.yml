@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  DEVOPS_DIR: devops
+
 jobs:
   run_tests:
     runs-on: ubuntu-latest
