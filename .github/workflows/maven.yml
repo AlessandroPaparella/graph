@@ -10,7 +10,7 @@ on:
     branches: [ master ]
 
 env:
-  DEVOPS_DIR: graph/.github/workflows
+  DEVOPS_DIR: devops
 
 jobs:
   run_tests:
@@ -48,7 +48,7 @@ jobs:
     - name: Check-out devops repository
       uses: actions/checkout@v2
       with:
-        repository: AlessandroPaparella/graph
+        repository: AlessandroPaparella/devops
         token: ${{ secrets.GITHUB_TOKEN }}
         path: ${{ env.DEVOPS_DIR }}
 
