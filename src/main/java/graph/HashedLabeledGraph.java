@@ -29,8 +29,13 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 	}
 
 	public void delNode(N node) throws GraphException {
-		// TODO Auto-generated method stub
-
+		if(!this.contains(node))
+			throw new GraphException("Node doesn't exists!");
+		nodes.remove(node);
+		arcs.remove(node);
+		for(N k: arcs.keySet()) {
+			arcs.get(k).remove(node);
+		}
 	}
 
 	public Boolean isEmpty() {
@@ -38,13 +43,21 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 	}
 
 	public Collection<N> getAdjacent(N node) throws GraphException {
-		// TODO Auto-generated method stub
-		return null;
+		if(!this.contains(node)) {
+			throw new GraphException("Node doesn't exist!");
+		}
+		return arcs.get(node).keySet();
 	}
 
 	public Boolean containsArc(N node1, N node2) throws GraphException {
-		// TODO Auto-generated method stub
-		return null;
+		if(!this.contains(node1) || !this.contains(node2)) {
+			throw new GraphException("Node doesn't exist!");
+		}
+		Boolean exists = false;
+		Set<N> adjacents=arcs.get(node1).keySet();
+		if(adjacents.contains(node2))
+			exists = true;
+		return exists;
 	}
 
 	public Boolean isNull() {
@@ -56,11 +69,6 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 			}
 		}
 		return isNull;
-	}
-
-	public Boolean isDirected() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public abstract void insArc(N node1, N node2, L label);
