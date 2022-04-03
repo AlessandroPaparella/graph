@@ -16,7 +16,7 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 
 	public void insNode(N node) {
 		if(nodes.add(node)==true)
-			arcs.put(node, new HashSet<N>());
+			arcs.put(node, new HashMap<N, L>());
 	}
 
 	public Boolean contains(N node) {
