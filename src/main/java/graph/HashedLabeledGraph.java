@@ -77,5 +77,9 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 
 	public abstract L readArc(N node1, N node2) throws GraphException;
 
+	protected Map<N,L> getArcs(N node){
+		return arcs.get(node);
+	}
+
 
 }
