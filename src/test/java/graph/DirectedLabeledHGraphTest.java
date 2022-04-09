@@ -55,6 +55,7 @@ class DirectedLabeledHGraphTest {
 		assertTrue(graph.containsArc(1, 2) && !graph.containsArc(2, 1) && graph.readArc(1, 2)=="B");
 	}
 
+	@Test
 	void testAdjacents() throws GraphException {
 		graph = new DirectedLabeledHGraph<Integer, String>();
 		graph.insArc(1, 2, "A");
