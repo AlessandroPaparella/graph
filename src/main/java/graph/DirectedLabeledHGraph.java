@@ -28,6 +28,9 @@ public class DirectedLabeledHGraph<N, L> extends HashedLabeledGraph<N, L> {
 
 	@Override
 	public L readArc(N node1, N node2) throws GraphException {
+		if(!containsArc(node1, node2)) {
+			throw new GraphException("Arc"+node1.toString()+"->"+node2.toString()+" does not exists!");
+		}
 		return getArcs(node1).get(node2);
 	}
 
