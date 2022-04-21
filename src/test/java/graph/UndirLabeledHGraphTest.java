@@ -38,13 +38,6 @@ class UndirLabeledHGraphTest {
 		graph.insArc(1, 2, "A");
 		graph.removeArc(1, 2);
 		assertTrue(!graph.containsArc(1, 2) && !graph.containsArc(2, 1));
-		assertThrows(GraphException.class, new Executable() {
-
-			public void execute() throws Throwable {
-				// TODO Auto-generated method stub
-				graph.readArc(1, 2);
-			}
-		});
 	}
 
 	@Test
