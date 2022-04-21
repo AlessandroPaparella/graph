@@ -47,6 +47,7 @@ public class DirectedHashedGraphTest {
 	void testRemoveArc() throws GraphException {
 		graph = new DirectedHashedGraph<Integer>();
 		((DirectedHashedGraph<Integer>)graph).insArc(1, 2);
+		((DirectedHashedGraph<Integer>)graph).removeArc(1, 2);
 		assertTrue(!graph.containsArc(1, 2));
 	}
 
