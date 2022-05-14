@@ -21,6 +21,13 @@ public abstract class GenericHashedGraph<N> implements GenericGraph<N> {
 		super();
 	}
 
+	public Boolean isMulti() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
 	public void insNode(N node) {
 		if(nodes.add(node)==true)
 			arcs.put(node, new HashSet<N>());

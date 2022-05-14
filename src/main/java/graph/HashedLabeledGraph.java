@@ -81,5 +81,12 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 		return arcs.get(node);
 	}
 
+	public Boolean isMulti() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
 
 }
