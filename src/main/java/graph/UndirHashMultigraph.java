@@ -43,6 +43,11 @@ public class UndirHashMultigraph<N, L> extends HashedMultigraph<N, L> {
 		Map<N, Set<L>> arcs_node2 = super.getAllArcs(node2);
 		arcs_node1.get(node2).remove(label);
 		arcs_node2.get(node1).remove(label);
+		if(arcs_node1.get(node2).isEmpty()) {
+			arcs_node1.remove(node2);
+			arcs_node2.remove(node1);
+		}
+
 	}
 
 }

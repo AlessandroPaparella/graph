@@ -37,6 +37,8 @@ public class DirectedHashMultigraph<N, L> extends HashedMultigraph<N, L> {
 	public void removeArc(N node1, N node2, L label) {
 		Map<N, Set<L>> arcs_node1 = super.getAllArcs(node1);
 		arcs_node1.get(node2).remove(label);
+		if(arcs_node1.get(node2).isEmpty())
+			arcs_node1.remove(node2);
 	}
 
 

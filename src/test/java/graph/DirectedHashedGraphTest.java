@@ -13,7 +13,7 @@ public class DirectedHashedGraphTest {
 	@Test
 	void testNew() {
 		graph = new DirectedHashedGraph<Integer>();
-		assertTrue(graph.isEmpty() && graph.isNull() && !graph.isLabeled() && graph.isDirected());
+		assertTrue(graph.isEmpty() && graph.isNull() && !graph.isLabeled() && graph.isDirected() && !graph.isMulti());
 	}
 
 	@Test
@@ -27,7 +27,7 @@ public class DirectedHashedGraphTest {
 	void testInsArcNewNodes() throws GraphException {
 		graph = new DirectedHashedGraph<Integer>();
 		((DirectedHashedGraph<Integer>)graph).insArc(1, 2);
-		assertTrue(graph.containsArc(1, 2) && !graph.containsArc(2, 1));
+		assertTrue(graph.containsArc(1, 2) && !graph.containsArc(2, 1) &&  !graph.isNull());
 	}
 
 	@Test
