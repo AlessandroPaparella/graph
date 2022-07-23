@@ -75,4 +75,9 @@ public interface GenericGraph<N> {
 	 */
 	public Boolean isLabeled();
 
+	/**
+	 * Check if the graph can have more than one edge between the same nodes in the same direction
+	 * @return true if the graph as label on the arcs
+	 */
+	public Boolean isMulti();
 }

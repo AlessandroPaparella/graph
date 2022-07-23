@@ -6,27 +6,19 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
-	private Map<N, Map<N, L>> arcs = new HashMap<N, Map<N,L>>();
-	private Set<N> nodes= new HashSet<N>();
+public abstract class HashedMultigraph<N, L> implements Multigraph<N, L> {
 
-	public HashedLabeledGraph() {
-		super();
-	}
+	private Set<N> nodes= new HashSet<N>();
+	private Map<N, Map<N, Set<L>>> arcs =  new HashMap<N, Map<N, Set<L>>>();
+
+
 
 	public void insNode(N node) {
 		if(nodes.add(node)==true)
-			arcs.put(node, new HashMap<N, L>());
+			arcs.put(node, new HashMap<N, Set<L>>());
 	}
 
-	public Boolean contains(N node) {
-		// TODO Auto-generated method stub
-		return nodes.contains(node);
-	}
 
-	public Boolean isLabeled() {
-		return true;
-	}
 
 	public void delNode(N node) throws GraphException {
 		if(!this.contains(node))
@@ -36,11 +28,17 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 		for(N k: arcs.keySet()) {
 			arcs.get(k).remove(node);
 		}
+
 	}
 
+
+
 	public Boolean isEmpty() {
+		// TODO Auto-generated method stub
 		return nodes.isEmpty();
 	}
+
+
 
 	public Collection<N> getAdjacent(N node) throws GraphException {
 		if(!this.contains(node)) {
@@ -49,16 +47,26 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 		return arcs.get(node).keySet();
 	}
 
+
+
+	public Boolean contains(N node) {
+		return nodes.contains(node);
+	}
+
+
+
 	public Boolean containsArc(N node1, N node2) throws GraphException {
 		if(!this.contains(node1) || !this.contains(node2)) {
 			throw new GraphException("Node doesn't exist!");
 		}
 		Boolean exists = false;
-		Set<N> adjacents=arcs.get(node1).keySet();
-		if(adjacents.contains(node2))
+		Map<N, Set<L>> adjacents=arcs.get(node1);
+		if(adjacents.containsKey(node2))
 			exists = true;
 		return exists;
 	}
+
+
 
 	public Boolean isNull() {
 		Boolean isNull = true;
@@ -71,22 +79,41 @@ public abstract class HashedLabeledGraph<N, L> implements LabeledGraph<N, L> {
 		return isNull;
 	}
 
-	public abstract void insArc(N node1, N node2, L label);
 
-	public abstract void removeArc(N node1, N node2) throws GraphException;
 
-	public abstract L readArc(N node1, N node2) throws GraphException;
+	public abstract Boolean isDirected();
 
-	protected Map<N,L> getArcs(N node){
-		return arcs.get(node);
+
+
+	public Boolean isLabeled() {
+		return true;
 	}
+
+
 
 	public Boolean isMulti() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 
+	public HashedMultigraph() {
+		super();
+	}
+
+
+	public abstract void insArc(N node1, N node2, L label);
+
+
+	public Collection<L> getArcs(N node1, N node2) throws GraphException {
+		return arcs.get(node1).get(node2);
+	}
+
+
+	public abstract void removeArc(N node1, N node2, L label);
+
+	Map<N, Set<L>> getAllArcs(N node){
+		return arcs.get(node);
+	}
 
 
 }
