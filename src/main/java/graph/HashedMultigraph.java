@@ -109,7 +109,11 @@ public abstract class HashedMultigraph<N, L> implements Multigraph<N, L> {
 	}
 
 
-	public abstract void removeArc(N node1, N node2, L label) throws GraphException;
+	public abstract void removeArc(N node1, N node2, L label);
+
+	Map<N, Set<L>> getAllArcs(N node){
+		return arcs.get(node);
+	}
 
 
 }

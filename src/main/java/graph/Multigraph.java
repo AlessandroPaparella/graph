@@ -34,5 +34,5 @@ public interface Multigraph<N, L> extends GenericGraph<N> {
 	 * @param node2
 	 * @throws GraphException if node1 and/or node2 not exist in the graph
 	 */
-	public void removeArc(N node1, N node2, L label) throws GraphException;
+	public void removeArc(N node1, N node2, L label);
 }
