@@ -53,9 +53,11 @@
 	</plugin>
 	<plugin>
    		<groupId>org.eluder.coveralls</groupId>
-		<sourceEncoding>UTF-8</sourceEncoding>
    		<artifactId>coveralls-maven-plugin</artifactId>
    		<version>4.3.0</version>
+		<configuration>
+			<sourceEncoding>UTF-8</sourceEncoding>
+		</configuration>
    		<dependencies>
       		<dependency>
          		<groupId>javax.xml.bind</groupId>
