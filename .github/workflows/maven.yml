@@ -79,7 +79,7 @@ jobs:
       run: |
         gpg --quiet --batch --yes --decrypt --passphrase=${{ secrets.GPG_PASSPHRASE }} --output maven-settings.xml .github/release/maven-settings.xml.gpg
         git checkout -b release
-        mvn -X -Prelease -B release:clean release:prepare -DreleaseVersion=$ -DdevelopmentVersion=$ -s maven-settings.xml
+        mvn -X -Prelease -B release:clean release:prepare -DreleaseVersion=${{steps.metadata.outputs.current-version}} -DdevelopmentVersion=${{steps.metadata.outputs.NEXT-version}} -s maven-settings.xml
         git checkout $
         git rebase release
         mvn -X -Prelease -B release:perform -DskipTests -s maven-settings.xml
