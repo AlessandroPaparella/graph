@@ -51,7 +51,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     name: release
-    if: ${{ github.event.pull_request.merged }}
+    #if: ${{ github.event.pull_request.merged }}
     steps:
     - uses: radcortez/project-metadata-action@master
       name: Retrieve project metadata
