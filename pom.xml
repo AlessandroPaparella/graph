@@ -4,6 +4,7 @@
 	<artifactId>graph</artifactId>
 	<name>graph</name>
 	<description>Java graph library</description>
+	<url>https://github.com/AlessandroPaparella/graph</url>
 	<licenses>
 		<license>
 			<name>MIT license</name>
