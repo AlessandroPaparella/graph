@@ -10,7 +10,7 @@
 			<url>https://raw.githubusercontent.com/AlessandroPaparella/graph/master/LICENSE</url>
 		</license>
 	</licenses>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
