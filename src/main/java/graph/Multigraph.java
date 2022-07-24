@@ -32,7 +32,6 @@ public interface Multigraph<N, L> extends GenericGraph<N> {
 	 * Remove the specified edge between two given nodes
 	 * @param node1
 	 * @param node2
-	 * @throws GraphException if node1 and/or node2 not exist in the graph
 	 */
 	public void removeArc(N node1, N node2, L label);
 }
