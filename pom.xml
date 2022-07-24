@@ -100,7 +100,7 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	<profiles>
 	<profile>
 		<id>release</id>
 		<build>
@@ -170,7 +170,7 @@
 			</plugins>
 		</build>
 	</profile>
-
+	</profiles>
 	<scm>
 		<connection>scm:git:git@github.com:alessandropaparella/graph.git</connection>
 		<developerConnection>scm:git:git@github.com:alessandropaparella/graph.git</developerConnection>
