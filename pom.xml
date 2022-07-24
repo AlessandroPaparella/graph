@@ -18,7 +18,7 @@
 			<url>https://raw.githubusercontent.com/AlessandroPaparella/graph/master/LICENSE</url>
 		</license>
 	</licenses>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
@@ -183,7 +183,7 @@
 		<connection>scm:git:git@github.com:alessandropaparella/graph.git</connection>
 		<developerConnection>scm:git:git@github.com:alessandropaparella/graph.git</developerConnection>
 		<url>https://github.com/AlessandroPaparella/graph</url>
-		<tag>HEAD</tag>
+		<tag>1.0.0</tag>
 	</scm>
 
 </project>
