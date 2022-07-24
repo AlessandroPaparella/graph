@@ -2,8 +2,16 @@ package graph;
 
 import java.util.Set;
 
+
+/**
+ *
+ * @author Alessandro Paparella
+ *
+ * @param <N>
+ */
 public class UndirectedHashedGraph<N> extends GenericHashedGraph<N> {
 
+	@Override
 	public Boolean isDirected() {
 		// TODO Auto-generated method stub
 		return false;
