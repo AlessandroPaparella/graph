@@ -53,7 +53,7 @@ jobs:
       id: metadata
       with:
         github-token: $
-        metadata-file-path: '.github/project.yml'
+        metadata-file-path: '.github/maven.yml'
 
     - uses: actions/checkout@v2
 
