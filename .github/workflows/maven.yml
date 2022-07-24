@@ -47,3 +47,57 @@ jobs:
     - name: 🧹 Cleanup Repository Token
       if: ${{ always() }}
       run: if [ -f "pom.xml.bak" ]; then mv pom.xml.bak pom.xml; fi
+      
+        release:
+    runs-on: ubuntu-latest
+    name: release
+    if: $
+
+    steps:
+      - uses: radcortez/project-metadata-action@master
+        name: Retrieve project metadata
+        id: metadata
+        with:
+          github-token: $
+          metadata-file-path: '.github/project.yml'
+
+      - uses: actions/checkout@v2
+
+      - name: Import GPG key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@v3
+        with:
+          gpg-private-key: $
+          passphrase: $
+
+      - name: Install JDK 11
+        uses: joschi/setup-jdk@e87a7cec853d2dd7066adf837fe12bf0f3d45e52
+        with:
+          distribution: 'temurin'
+          java-version: 11
+          check-latest: true
+
+      - name: Configure Git author
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - name: Maven release $
+        run: |
+          gpg --quiet --batch --yes --decrypt --passphrase="$" --output maven-settings.xml .github/release/maven-settings.xml.gpg
+          git checkout -b release
+          mvn -X -Prelease -B release:clean release:prepare -DreleaseVersion=$ -DdevelopmentVersion=$ -s maven-settings.xml
+          git checkout $
+          git rebase release
+          mvn -X -Prelease -B release:perform -DskipTests -s maven-settings.xml
+      - name: Push changes to $
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: $
+          branch: $
+
+      - name: Push tags
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          branch: $
+          github_token: $
+          tags: true
