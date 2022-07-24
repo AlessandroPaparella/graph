@@ -11,6 +11,16 @@
 		</license>
 	</licenses>
 	<version>1.0.0</version>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>oss.sonatype</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -125,6 +135,39 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<tagNameFormat>@{project.version}</tagNameFormat>
+					<pushChanges>false</pushChanges>
+					<localCheckout>true</localCheckout>
+					<remoteTagging>false</remoteTagging>
+					<arguments>-DskipTests=true</arguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.13</version>
+				<extensions>true</extensions>
+				<configuration>
+					<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+					<serverId>ossrh</serverId>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					<stagingProgressTimeoutMinutes>60</stagingProgressTimeoutMinutes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
+	<scm>
+		<connection>scm:git:git@github.com:alessandropaparella/graph.git</connection>
+		<developerConnection>scm:git:git@github.com:alessandropaparella/graph.git</developerConnection>
+		<url>https://github.com/AlessandroPaparella/graph</url>
+		<tag>HEAD</tag>
+	</scm>
+
 </project>
