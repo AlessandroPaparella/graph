@@ -4,6 +4,14 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ *
+ * @author Alessandro Paparella
+ * @param <N> this is the generic type of object that will represent the nodes
+ *            without duplicated values
+ * @param <L> this is the generic type of object that will represent the labels
+ *            without duplicated values between the same nodes
+ */
 public class UndirHashMultigraph<N, L> extends HashedMultigraph<N, L> {
 
 	@Override

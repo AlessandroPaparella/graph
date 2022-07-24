@@ -4,13 +4,31 @@
 	<artifactId>graph</artifactId>
 	<name>graph</name>
 	<description>Java graph library</description>
+	<url>https://github.com/AlessandroPaparella/graph</url>
+	 <developers>
+    <developer>
+      <id>AlessandroPaparella</id>
+      <name>alessandropaparella</name>
+      <email>alessandro_paparella@outlook.it</email>
+    </developer>
+  </developers>
 	<licenses>
 		<license>
 			<name>MIT license</name>
 			<url>https://raw.githubusercontent.com/AlessandroPaparella/graph/master/LICENSE</url>
 		</license>
 	</licenses>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>oss.sonatype</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -88,43 +106,84 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.3.0</version>
-				<configuration>
-					<tags>
-						<tag>
-							<name>precondition</name>
-						</tag>
-						<tag>
-							<name>post</name>
-						</tag>
-					</tags>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-gpg-plugin</artifactId>
-				<version>3.0.1</version>
-				<executions>
-					<execution>
-						<id>sign-artifacts</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>sign</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+	<profile>
+		<id>release</id>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>3.3.0</version>
+					<configuration>
+						<tags>
+							<tag>
+								<name>precondition</name>
+							</tag>
+							<tag>
+								<name>post</name>
+							</tag>
+						</tags>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>3.0.1</version>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<tagNameFormat>@{project.version}</tagNameFormat>
+						<pushChanges>false</pushChanges>
+						<localCheckout>true</localCheckout>
+						<remoteTagging>false</remoteTagging>
+						<arguments>-DskipTests=true</arguments>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<version>1.6.13</version>
+					<extensions>true</extensions>
+					<configuration>
+						<nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+						<serverId>ossrh</serverId>
+						<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						<stagingProgressTimeoutMinutes>60</stagingProgressTimeoutMinutes>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+	</profiles>
+	<scm>
+		<connection>scm:git:git@github.com:alessandropaparella/graph.git</connection>
+		<developerConnection>scm:git:git@github.com:alessandropaparella/graph.git</developerConnection>
+		<url>https://github.com/AlessandroPaparella/graph</url>
+		<tag>HEAD</tag>
+	</scm>
+
 </project>

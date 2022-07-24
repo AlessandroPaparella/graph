@@ -1,7 +1,15 @@
 package graph;
 
+/**
+ *
+ * @author Alessandro Paparella
+ *
+ * @param <N> this is the generic type of object that will represent the nodes without duplicated values
+ * @param <L> this is the generic type of object that will represent the labels on edges
+ */
 public class DirectedLabeledHGraph<N, L> extends HashedLabeledGraph<N, L> {
 
+	@Override
 	public Boolean isDirected() {
 		return true;
 	}

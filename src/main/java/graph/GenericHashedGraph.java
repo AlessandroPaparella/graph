@@ -22,7 +22,6 @@ public abstract class GenericHashedGraph<N> implements GenericGraph<N> {
 	}
 
 	public Boolean isMulti() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -56,7 +55,6 @@ public abstract class GenericHashedGraph<N> implements GenericGraph<N> {
 	}
 
 	public Boolean contains(N node) {
-		// TODO Auto-generated method stub
 		return nodes.contains(node);
 	}
 

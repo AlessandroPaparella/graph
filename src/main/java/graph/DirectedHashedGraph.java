@@ -11,7 +11,6 @@ import java.util.Set;
 public class DirectedHashedGraph<N> extends GenericHashedGraph<N> {
 
 	public Boolean isDirected() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
