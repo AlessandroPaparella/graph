@@ -95,3 +95,7 @@ jobs:
         branch: $
         github_token: $
         tags: true
+    name: PROJECT NAME
+      release:
+      current-version: 1.0.0
+      next-version: 1.0.1-SNAPSHOT
