@@ -5,6 +5,13 @@
 	<name>graph</name>
 	<description>Java graph library</description>
 	<url>https://github.com/AlessandroPaparella/graph</url>
+	 <developers>
+    <developer>
+      <id>AlessandroPaparella</id>
+      <name>alessandropaparella</name>
+      <email>alessandro_paparella@outlook.it</email>
+    </developer>
+  </developers>
 	<licenses>
 		<license>
 			<name>MIT license</name>
