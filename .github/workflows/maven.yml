@@ -52,7 +52,7 @@ jobs:
       name: Retrieve project metadata
       id: metadata
       with:
-        github-token: $
+        github-token: ${{secrets.GITHUB_TOKEN}}
         metadata-file-path: '.github/maven.yml'
 
     - uses: actions/checkout@v2
