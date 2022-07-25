@@ -5,8 +5,9 @@ on:
     types: [closed]
     paths:
       - '.github/project.yml'
-      
-release:
+
+jobs:
+  release:
     runs-on: ubuntu-latest
     name: release
     steps:
