@@ -7,10 +7,13 @@ A java implementation for:
 - Muligraph
 
 ## Examples
+  
+<div float="left">
+  <img src="./img/generic_undir.png" width="200" title="Undirected graph" vertical-align="top"/>
+  <img src="./img/generic_dir.png" width="200" title="Directed graph" vertical-align="top"/> 
+  <img src="./img/labeled_dir.png" width="200" title="Directed labeled graph"/>
+  <img src="./img/labeled_undir.png" width="200" title="Undirected labeled graph"/>
+  <img src="./img/multigraph_dir.png" width="200" title="Directed multigraph"/>
+  <img src="./img/multigraph_undir.png" width="200" title="Undirected multigraph"/>
+</div>
 
-![Directed](./img/generic_dir.png)
-![Undirected](./img/generic_undir.png)
-![Directed labeled](./img/labeled_dir.png)
-![Undirected labeled](./img/labeled_undir.png)
-![Directed multigraph](./img/multigraph_dir.png)
-![Undirected multigraph](./img/multigraph_undir.png)
