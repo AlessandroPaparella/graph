@@ -13,7 +13,7 @@ A java implementation for:
   <img src="./img/generic_dir.png" width="200" title="Directed graph" vertical-align="top"/> 
   <img src="./img/labeled_dir.png" width="200" title="Directed labeled graph"/>
   <img src="./img/labeled_undir.png" width="200" title="Undirected labeled graph"/>
-  <img src="./img/multigraph_dir.png" width="200" title="Directed multigraph"/>
-  <img src="./img/multigraph_undir.png" width="200" title="Undirected multigraph"/>
+  <img src="./img/multigraph_dir.png" width="250" title="Directed multigraph"/>
+  <img src="./img/multigraph_undir.png" width="250" title="Undirected multigraph"/>
 </div>
 
