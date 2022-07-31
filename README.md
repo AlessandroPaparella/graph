@@ -21,3 +21,15 @@ A java implementation for:
 
 ![Class diagram](./img/Graph_class_diagram.png)
 
+## Instructions
+
+Artifact uploaded to Maven Central, add this code to your `pom.xml`:
+
+```
+<dependency>
+  <groupId>io.github.alessandropaparella</groupId>
+  <artifactId>graph</artifactId>
+  <version>...</version>
+</dependency>
+```
+
