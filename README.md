@@ -17,3 +17,7 @@ A java implementation for:
   <img src="./img/multigraph_undir.png" width="250" title="Undirected multigraph"/>
 </div>
 
+## Class diagram
+
+![Class diagram](./img/Graph_class_diagram.png)
+
